@@ -189,19 +189,6 @@
     objc_setAssociatedObject(self, @selector(normalImageKey), imageKey, OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 
-//- (CGFloat)normalImageAlpha {
-//    return [objc_getAssociatedObject(self, @selector(normalImageAlpha)) floatValue];
-//}
-//
-//- (void)setNormalImageAlpha:(CGFloat)imageAlpha {
-//
-//    imageAlpha = (imageAlpha > 1.f) ? 1.f : imageAlpha;
-//    imageAlpha = (imageAlpha < 0.f) ? 0.f : imageAlpha;
-//
-//    NSNumber *alpha = [NSNumber numberWithFloat:imageAlpha];
-//    objc_setAssociatedObject(self, @selector(normalImageAlpha), alpha, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-//}
-
 - (NSString *)nightImageKey {
     return objc_getAssociatedObject(self, @selector(nightImageKey));
 }
@@ -210,16 +197,4 @@
     objc_setAssociatedObject(self, @selector(nightImageKey), imageKey, OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 
-//- (CGFloat)nightImageAlpha {
-//    return [objc_getAssociatedObject(self, @selector(nightImageAlpha)) floatValue];
-//}
-//
-//- (void)setNightImageAlpha:(CGFloat)imageAlpha {
-//
-//    imageAlpha = (imageAlpha > 1.f) ? 1.f : imageAlpha;
-//    imageAlpha = (imageAlpha < 0.f) ? 0.f : imageAlpha;
-//
-//    NSNumber *alpha = [NSNumber numberWithFloat:imageAlpha];
-//    objc_setAssociatedObject(self, @selector(nightImageAlpha), alpha, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-//}
 @end

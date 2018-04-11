@@ -21,19 +21,6 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self)
     {
-//#ifdef USE_BLOCK
-//        self.label = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, 270, 50)];
-//        self.label.numberOfLines = 0;
-//        self.label.res_textColor = [UIColor normalColor:[UIColor blackColor] nightColor:[UIColor whiteColor]];
-//        self.label.lineBreakMode = NSLineBreakByCharWrapping;
-//        [self.contentView addSubview:self.label];
-//
-//        self.imageV = [[UIImageView alloc] res_initWithImage:[UIImage normalImage:[UIImage imageNamed:@"day"] nightImage:[UIImage imageNamed:@"night"]]];
-//        self.imageV.frame = CGRectMake(300, 15, 20, 20);
-//        [self.contentView addSubview:self.imageV];
-//
-//        self.selectionStyle = UITableViewCellSelectionStyleNone;
-//#else
         self.label = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, 270, 50)];
         self.label.numberOfLines = 0;
         self.label.res_textColor = [UIColor whiteColor];
@@ -53,7 +40,6 @@
         [button setRes_backgroundColor:[UIColor linkTipColorForKey:@"A"]];
         [button res_setImage:[UIImage res_imageWithNormalKey:@"day" nightKey:@"night"] forState:UIControlStateNormal];
         [self.contentView addSubview:button];
-//#endif
     }
     
     return self;
@@ -70,7 +56,7 @@
     if (highlighted) {
         self.contentView.res_backgroundColor = [UIColor bgLineColorForKey:@"C"];
     } else {
-        self.contentView.res_backgroundColor = [UIColor colorWithNormalHex:@"0x0ba111" nightHex:@"0x1111bb"];
+        self.contentView.res_backgroundColor = [UIColor colorWithNormalHex:@"0x0ba111"];
     }
 
 }

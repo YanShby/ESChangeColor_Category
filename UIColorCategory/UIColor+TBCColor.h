@@ -88,13 +88,8 @@
 
 /// 日间ImageKey值
 @property (nonatomic, copy)   NSString       *normalImageKey;
-/// 日间Image透明度
-@property (nonatomic, assign) CGFloat        normalImageAlpha;
-
 /// 夜间ImageKey值
 @property (nonatomic, copy)   NSString       *nightImageKey;
-/// 夜间Image透明度
-@property (nonatomic, assign) CGFloat        nightImageAlpha;
 
 + (UIImage *)res_imageWithKey:(NSString *)key;
 + (UIImage *)res_imageWithNormalKey:(NSString *)key1 nightKey:(NSString *)key2;
