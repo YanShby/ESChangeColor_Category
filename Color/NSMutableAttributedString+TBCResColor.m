@@ -15,55 +15,49 @@
 
 @implementation NSMutableAttributedString (TBCResColor)
 
-- (void)addForegroundColor:(UIColor *)color range:(NSRange)range
+
+- (void)res_addAttribute:(NSAttributedStringKey)name value:(id)value range:(NSRange)range
 {
-    if (color)
-    {
-        [self addAttribute:NSForegroundColorAttributeName value:color range:range];
-        NSString *key = [NSString stringWithFormat:@"%@_%@",NSForegroundColorAttributeName,NSStringFromRange(range)];
+    [self addAttribute:name value:value range:range];
+    if ([name isEqualToString:NSForegroundColorAttributeName] ||
+        [name isEqualToString:NSBackgroundColorAttributeName] ||
+        [name isEqualToString:NSStrokeColorAttributeName] ||
+        [name isEqualToString:NSUnderlineColorAttributeName] ||
+        [name isEqualToString:NSStrikethroughColorAttributeName]) {
+        [self addResAttribute:name color:value range:range];
+    }
+}
+
+- (void)res_setAttributes:(NSDictionary<NSAttributedStringKey,id> *)attrs range:(NSRange)range
+{
+    [self setAttributes:attrs range:range];
+    
+    NSArray *attributedColor = @[
+                                 NSForegroundColorAttributeName,
+                                 NSBackgroundColorAttributeName,
+                                 NSStrokeColorAttributeName,
+                                 NSUnderlineColorAttributeName,
+                                 NSStrikethroughColorAttributeName
+                                 ];
+    for (NSAttributedStringKey key in attributedColor) {
+        id value = [attrs objectForKey:key];
+        if (value) {
+            [self res_addAttribute:key value:value range:range];
+        }
+    }
+}
+
+- (void)addResAttribute:(NSAttributedStringKey)name color:(UIColor *)color range:(NSRange)range
+{
+    if (color && [color isKindOfClass:UIColor.class]) {
+        NSString *key = [NSString stringWithFormat:@"%@_%@",name,NSStringFromRange(range)];
         [self.resColors setObject:color forKey:key];
     }
 }
 
-- (void)addBackgroundColor:(UIColor *)color range:(NSRange)range
-{
-    if (color)
-    {
-        [self addAttribute:NSBackgroundColorAttributeName value:color range:range];
-        NSString *key = [NSString stringWithFormat:@"%@_%@",NSBackgroundColorAttributeName,NSStringFromRange(range)];
-        [self.resColors setObject:color forKey:key];
-    }
-}
 
-- (void)addStrokeColor:(UIColor *)color range:(NSRange)range
-{
-    if (color)
-    {
-        [self addAttribute:NSStrokeColorAttributeName value:color range:range];
-        NSString *key = [NSString stringWithFormat:@"%@_%@",NSStrokeColorAttributeName,NSStringFromRange(range)];
-        [self.resColors setObject:color forKey:key];
-    }
-}
 
-- (void)addUnderlineColor:(UIColor *)color range:(NSRange)range
-{
-    if (color)
-    {
-        [self addAttribute:NSUnderlineColorAttributeName value:color range:range];
-        NSString *key = [NSString stringWithFormat:@"%@_%@",NSUnderlineColorAttributeName,NSStringFromRange(range)];
-        [self.resColors setObject:color forKey:key];
-    }
-}
 
-- (void)addStrikethroughColor:(UIColor *)color range:(NSRange)range
-{
-    if (color)
-    {
-        [self addAttribute:NSStrikethroughColorAttributeName value:color range:range];
-        NSString *key = [NSString stringWithFormat:@"%@_%@",NSStrikethroughColorAttributeName,NSStringFromRange(range)];
-        [self.resColors setObject:color forKey:key];
-    }
-}
 
 
 // YYText

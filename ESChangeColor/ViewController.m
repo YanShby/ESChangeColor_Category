@@ -32,10 +32,7 @@
     [super viewDidLoad];
     
     [self.tableView registerClass:[ESTableViewCell class] forCellReuseIdentifier:@"Cell"];
-    
-//    // tableview's separator
-//    self.tableView.res_separatorColor = [UIColor normalColor:[UIColor blackColor] nightColor:[UIColor yellowColor]];
-//
+
     // NavBar's Title
     UILabel *navigationLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 375, 44)];
     navigationLabel.text = @"NightRes";
@@ -49,24 +46,7 @@
     themeSwitch.res_onTintColor = [UIColor linkTipColorForKey:@"A"];
     self.themeSwitch = themeSwitch;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:themeSwitch];
-//
-//    // second vc's back button
-//    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
-//
-//    // backgroundColor of vc's view
-//    self.view.res_backgroundColor = [UIColor normalColor:[UIColor whiteColor] nightColor:[UIColor blackColor]];
-//
-//    [self.navigationController.navigationBar setRes_barTintColor:[UIColor normalColor:[UIColor whiteColor] nightColor:[UIColor blackColor]]];
-    
-    
-    
-    // Use hook.
-//    self.view.tbc_backgroundColor = [UIColor linkTipColorForKey:@"D"];
-//
-//    self.tableView.separatorColor = [UIColor otherColorForKey:@"A"];
-//
-//    self.navigationController.navigationBar.barTintColor = [UIColor bgLineColorForKey:@"E"];
-    
+
     self.view.res_backgroundColor = [UIColor linkTipColorForKey:@"D"];
     self.tableView.res_separatorColor = [UIColor otherColorForKey:@"A"];
     self.navigationController.navigationBar.res_barTintColor = [UIColor bgLineColorForKey:@"E" needsNightMode:NO];

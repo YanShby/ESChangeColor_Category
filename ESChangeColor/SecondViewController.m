@@ -77,10 +77,15 @@
     NSString *string = [NSString stringWithFormat:@"Let's test %@ with night mode!",attributedString];
    
     NSMutableAttributedString *mutableAttributeString = [[NSMutableAttributedString alloc] initWithString:string];
-    [mutableAttributeString addForegroundColor:[UIColor linkTipColorForKey:@"B"] range:NSMakeRange(0, 5)];
-    [mutableAttributeString addForegroundColor:[UIColor linkTipColorForKey:@"A"] range:NSMakeRange(6, 10)];
-    [mutableAttributeString addForegroundColor:[UIColor linkTipColorForKey:@"C"] range:NSMakeRange(20, 6)];
-    [mutableAttributeString addBackgroundColor:[UIColor linkTipColorForKey:@"D"] range:NSMakeRange(30, 10)];
+//    [mutableAttributeString res_addAttribute:NSForegroundColorAttributeName value:[UIColor linkTipColorForKey:@"B"] range:NSMakeRange(0, 5)];
+//    [mutableAttributeString res_addAttribute:NSForegroundColorAttributeName value:[UIColor linkTipColorForKey:@"A"] range:NSMakeRange(6, 10)];
+//    [mutableAttributeString res_addAttribute:NSForegroundColorAttributeName value:[UIColor linkTipColorForKey:@"C"] range:NSMakeRange(20, 6)];
+//    [mutableAttributeString res_addAttribute:NSForegroundColorAttributeName value:[UIColor linkTipColorForKey:@"D"] range:NSMakeRange(30, 10)];
+    [mutableAttributeString res_setAttributes:@{
+                                                NSForegroundColorAttributeName : [UIColor linkTipColorForKey:@"B"],
+                                                NSBackgroundColorAttributeName : [UIColor linkTipColorForKey:@"C"]
+                                                }
+                                        range:NSMakeRange(30, 10)];
     return mutableAttributeString;
 }
 

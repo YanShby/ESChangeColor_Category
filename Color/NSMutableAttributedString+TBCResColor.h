@@ -11,14 +11,10 @@
 #import "NSObject+TBCResColor.h"
 #import "NSAttributedString+YYText.h"
 
-
 @interface NSMutableAttributedString (TBCResColor)
 
-- (void)addForegroundColor:(UIColor *)color range:(NSRange)range;
-- (void)addBackgroundColor:(UIColor *)color range:(NSRange)range;
-- (void)addStrokeColor:(UIColor *)color range:(NSRange)range;
-- (void)addUnderlineColor:(UIColor *)color range:(NSRange)range;
-- (void)addStrikethroughColor:(UIColor *)color range:(NSRange)range;
+- (void)res_addAttribute:(NSAttributedStringKey)name value:(id)value range:(NSRange)range;
+- (void)res_setAttributes:(nullable NSDictionary<NSAttributedStringKey, id> *)attrs range:(NSRange)range;
 
 
 // YYText
